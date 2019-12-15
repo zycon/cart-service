@@ -1,0 +1,24 @@
+syntax ="proto3";
+
+package protobuf;
+
+
+service CartService{
+
+}
+
+message Cart{
+    int32 cartId=1;
+    int32 userId=2;
+    string createdDateISO=3;
+    string lastModifiedDateISO=4;
+}
+message CartList{
+    int32 cartId=1;
+    int32 itemId=2;
+    int32 quantity=3;
+    string itemAddedDateISO=4;
+    float unitPrice=5;
+}
+
+
