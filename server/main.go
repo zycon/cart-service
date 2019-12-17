@@ -1,7 +1,7 @@
 package main
 
 import (
-	pb "./protobuf/"
+	cart "../pb/"
 	"log"
 	"fmt"
 	"google.golang.org/grpc"
@@ -25,5 +25,5 @@ func main() {
 	serverOptions := []grpc.ServerOption{}
 	grpcServer := grpc.NewServer(serverOptions...)
 	srv := &CartServiceServer{}
-	pb.RegisterCartServiceServer(grpcServer,srv)
+	pbcart.RegisterCartServiceServer(grpcServer, srv)
 }
