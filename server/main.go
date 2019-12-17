@@ -1,7 +1,7 @@
 package main
 
 import (
-	cart "../pb/"
+	pbcart "../pb/"
 	"log"
 	"fmt"
 	"google.golang.org/grpc"
