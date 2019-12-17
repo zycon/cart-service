@@ -6,4 +6,4 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 
 
 compile the definiton by 
-protoc --go_out=. ./protobuf/*.proto 
+protoc --go_out=plugins=grpc:. ./protobuf/*.proto

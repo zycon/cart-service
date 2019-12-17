@@ -1,24 +1,36 @@
-syntax ="proto3";
+syntax = "proto3";
 
-package protobuf;
+package cart;
 
 
-service CartService{
-
+message CartResponse {
+    int32 cartId = 1;
+    int32 userId = 2;
+    string createdDateISO = 3;
+}
+message StatusCheck {
+    string check = 1;
+}
+message CartRequest {
+    int32 cartId = 1;
+    int32 userId = 2;
+    string createdDateISO = 3;
+}
+message CartList {
+    int32 cartId = 1;
+    int32 itemId = 2;
+    int32 quantity = 3;
+    string itemAddedDateISO = 4;
+    float unitPrice = 5;
 }
 
-message Cart{
-    int32 cartId=1;
-    int32 userId=2;
-    string createdDateISO=3;
-    string lastModifiedDateISO=4;
-}
-message CartList{
-    int32 cartId=1;
-    int32 itemId=2;
-    int32 quantity=3;
-    string itemAddedDateISO=4;
-    float unitPrice=5;
-}
+service CartService {
 
+    rpc updateCart (CartRequest) returns (CartResponse) {
+    }
+    rpc statusCheck (StatusCheck) returns (StatusCheck) {
+    }
+
+
+}
 
