@@ -1,15 +1,15 @@
 package main
 
 import (
-	pbcart "../pb/"
-	"log"
 	"fmt"
+	pbcart "github.com/zycon/cart-service/pb"
 	"google.golang.org/grpc"
+	"log"
 	"net"
 )
 
 var (
-	port = 1000;
+	port = 1000
 )
 
 type CartServiceServer struct {
