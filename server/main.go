@@ -2,16 +2,14 @@ package main
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	pbcart "github.com/zycon/cart-service/pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
-)
-
-var (
-	port = 1000
 )
 
 type cartServiceServer struct {
@@ -24,6 +22,15 @@ func main() {
 	if err != nil {
 		log.Fatal("unable to listen on the port")
 	}
+
+	db, err := sql.Open("mysql", "root:ad#1234@/cart")
+	if err != nil {
+		log.Fatal("unable to establish mysql connection")
+	}
+	if db != nil {
+		log.Println("Connection established")
+	}
+
 	serverOptions := []grpc.ServerOption{}
 	grpcServer := grpc.NewServer(serverOptions...)
 	pbcart.RegisterCartServiceServer(grpcServer, &cartServiceServer{})
@@ -36,9 +43,12 @@ func main() {
 
 func (s *cartServiceServer) UpdateCart(ctx context.Context, request *pbcart.CartRequest) (*pbcart.CartResponse, error) {
 	fmt.Println(request.GetCartId())
-	return &pbcart.CartResponse{}, nil
+	return &pbcart.CartResponse{CartId: request.CartId}, nil
 
 }
 func (s *cartServiceServer) StatusCheck(ctx context.Context, request *pbcart.StatusCheck) (*pbcart.StatusCheck, error) {
 	return &pbcart.StatusCheck{Check: "welcome"}, nil
+}
+func (s *cartServiceServer) GetCarts(ctx context.Context, request *Empty) (*pbcart.CartListResponse, error) {
+	return &pbcart.CartListResponse{}, nil
 }

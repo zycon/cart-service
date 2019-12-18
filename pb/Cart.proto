@@ -16,7 +16,13 @@ message CartRequest {
     int32 userId = 2;
     string createdDateISO = 3;
 }
-message CartList {
+message Empty {
+
+}
+message CartListResponse {
+    repeated CartResponse cart = 1;
+}
+message BucketList {
     int32 cartId = 1;
     int32 itemId = 2;
     int32 quantity = 3;
@@ -29,6 +35,8 @@ service CartService {
     rpc updateCart (CartRequest) returns (CartResponse) {
     }
     rpc statusCheck (StatusCheck) returns (StatusCheck) {
+    }
+    rpc getCarts (Empty) returns (CartListResponse) {
     }
 
 

@@ -173,7 +173,77 @@ func (m *CartRequest) GetCreatedDateISO() string {
 	return ""
 }
 
-type CartList struct {
+type Empty struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Empty) Reset()         { *m = Empty{} }
+func (m *Empty) String() string { return proto.CompactTextString(m) }
+func (*Empty) ProtoMessage()    {}
+func (*Empty) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dae62ee8f9262a48, []int{3}
+}
+
+func (m *Empty) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Empty.Unmarshal(m, b)
+}
+func (m *Empty) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Empty.Marshal(b, m, deterministic)
+}
+func (m *Empty) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Empty.Merge(m, src)
+}
+func (m *Empty) XXX_Size() int {
+	return xxx_messageInfo_Empty.Size(m)
+}
+func (m *Empty) XXX_DiscardUnknown() {
+	xxx_messageInfo_Empty.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Empty proto.InternalMessageInfo
+
+type CartListResponse struct {
+	Cart                 []*CartResponse `protobuf:"bytes,1,rep,name=cart,proto3" json:"cart,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *CartListResponse) Reset()         { *m = CartListResponse{} }
+func (m *CartListResponse) String() string { return proto.CompactTextString(m) }
+func (*CartListResponse) ProtoMessage()    {}
+func (*CartListResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dae62ee8f9262a48, []int{4}
+}
+
+func (m *CartListResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CartListResponse.Unmarshal(m, b)
+}
+func (m *CartListResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CartListResponse.Marshal(b, m, deterministic)
+}
+func (m *CartListResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CartListResponse.Merge(m, src)
+}
+func (m *CartListResponse) XXX_Size() int {
+	return xxx_messageInfo_CartListResponse.Size(m)
+}
+func (m *CartListResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CartListResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CartListResponse proto.InternalMessageInfo
+
+func (m *CartListResponse) GetCart() []*CartResponse {
+	if m != nil {
+		return m.Cart
+	}
+	return nil
+}
+
+type BucketList struct {
 	CartId               int32    `protobuf:"varint,1,opt,name=cartId,proto3" json:"cartId,omitempty"`
 	ItemId               int32    `protobuf:"varint,2,opt,name=itemId,proto3" json:"itemId,omitempty"`
 	Quantity             int32    `protobuf:"varint,3,opt,name=quantity,proto3" json:"quantity,omitempty"`
@@ -184,60 +254,60 @@ type CartList struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CartList) Reset()         { *m = CartList{} }
-func (m *CartList) String() string { return proto.CompactTextString(m) }
-func (*CartList) ProtoMessage()    {}
-func (*CartList) Descriptor() ([]byte, []int) {
-	return fileDescriptor_dae62ee8f9262a48, []int{3}
+func (m *BucketList) Reset()         { *m = BucketList{} }
+func (m *BucketList) String() string { return proto.CompactTextString(m) }
+func (*BucketList) ProtoMessage()    {}
+func (*BucketList) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dae62ee8f9262a48, []int{5}
 }
 
-func (m *CartList) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CartList.Unmarshal(m, b)
+func (m *BucketList) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BucketList.Unmarshal(m, b)
 }
-func (m *CartList) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CartList.Marshal(b, m, deterministic)
+func (m *BucketList) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BucketList.Marshal(b, m, deterministic)
 }
-func (m *CartList) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CartList.Merge(m, src)
+func (m *BucketList) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BucketList.Merge(m, src)
 }
-func (m *CartList) XXX_Size() int {
-	return xxx_messageInfo_CartList.Size(m)
+func (m *BucketList) XXX_Size() int {
+	return xxx_messageInfo_BucketList.Size(m)
 }
-func (m *CartList) XXX_DiscardUnknown() {
-	xxx_messageInfo_CartList.DiscardUnknown(m)
+func (m *BucketList) XXX_DiscardUnknown() {
+	xxx_messageInfo_BucketList.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_CartList proto.InternalMessageInfo
+var xxx_messageInfo_BucketList proto.InternalMessageInfo
 
-func (m *CartList) GetCartId() int32 {
+func (m *BucketList) GetCartId() int32 {
 	if m != nil {
 		return m.CartId
 	}
 	return 0
 }
 
-func (m *CartList) GetItemId() int32 {
+func (m *BucketList) GetItemId() int32 {
 	if m != nil {
 		return m.ItemId
 	}
 	return 0
 }
 
-func (m *CartList) GetQuantity() int32 {
+func (m *BucketList) GetQuantity() int32 {
 	if m != nil {
 		return m.Quantity
 	}
 	return 0
 }
 
-func (m *CartList) GetItemAddedDateISO() string {
+func (m *BucketList) GetItemAddedDateISO() string {
 	if m != nil {
 		return m.ItemAddedDateISO
 	}
 	return ""
 }
 
-func (m *CartList) GetUnitPrice() float32 {
+func (m *BucketList) GetUnitPrice() float32 {
 	if m != nil {
 		return m.UnitPrice
 	}
@@ -248,31 +318,37 @@ func init() {
 	proto.RegisterType((*CartResponse)(nil), "cart.CartResponse")
 	proto.RegisterType((*StatusCheck)(nil), "cart.StatusCheck")
 	proto.RegisterType((*CartRequest)(nil), "cart.CartRequest")
-	proto.RegisterType((*CartList)(nil), "cart.CartList")
+	proto.RegisterType((*Empty)(nil), "cart.Empty")
+	proto.RegisterType((*CartListResponse)(nil), "cart.CartListResponse")
+	proto.RegisterType((*BucketList)(nil), "cart.BucketList")
 }
 
 func init() { proto.RegisterFile("pb/Cart.proto", fileDescriptor_dae62ee8f9262a48) }
 
 var fileDescriptor_dae62ee8f9262a48 = []byte{
-	// 285 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x92, 0xd1, 0x4a, 0xfb, 0x30,
-	0x14, 0xc6, 0xd7, 0xfd, 0xd7, 0xb1, 0x9d, 0xfd, 0x15, 0x0d, 0x22, 0x65, 0x78, 0x51, 0x2a, 0x48,
-	0xf1, 0xa2, 0x82, 0xb2, 0x07, 0x90, 0x79, 0x53, 0x10, 0x94, 0xf4, 0x09, 0xb2, 0xe4, 0x88, 0x41,
-	0x6c, 0xbb, 0xe4, 0x44, 0x10, 0x5f, 0xc6, 0x47, 0x95, 0x34, 0xc3, 0x16, 0x07, 0xde, 0x79, 0x97,
-	0xef, 0x47, 0x92, 0xef, 0xe3, 0x3b, 0x07, 0x0e, 0xda, 0xcd, 0xd5, 0x5a, 0x18, 0x2a, 0x5a, 0xd3,
-	0x50, 0xc3, 0x26, 0x52, 0x18, 0xca, 0x9e, 0xe0, 0xbf, 0x67, 0x1c, 0x6d, 0xdb, 0xd4, 0x16, 0xd9,
-	0x29, 0x4c, 0x3d, 0x2f, 0x55, 0x12, 0xa5, 0x51, 0x1e, 0xf3, 0x9d, 0xf2, 0xdc, 0x59, 0x34, 0xa5,
-	0x4a, 0xc6, 0x81, 0x07, 0xc5, 0x2e, 0xe0, 0x50, 0x1a, 0x14, 0x84, 0xea, 0x4e, 0x10, 0x96, 0xd5,
-	0x43, 0xf2, 0x2f, 0x8d, 0xf2, 0x39, 0xff, 0x41, 0xb3, 0x73, 0x58, 0x54, 0x24, 0xc8, 0xd9, 0xf5,
-	0x33, 0xca, 0x17, 0x76, 0x02, 0xb1, 0xf4, 0x87, 0xce, 0x65, 0xce, 0x83, 0xc8, 0x10, 0x16, 0x21,
-	0xcc, 0xd6, 0xa1, 0xa5, 0x3f, 0xcb, 0xf2, 0x19, 0xc1, 0xcc, 0xfb, 0xdc, 0xeb, 0xdf, 0x4d, 0x34,
-	0xe1, 0x6b, 0x6f, 0x12, 0x14, 0x5b, 0xc2, 0x6c, 0xeb, 0x44, 0x4d, 0x9a, 0xde, 0xbb, 0xef, 0x63,
-	0xfe, 0xad, 0xd9, 0x25, 0x1c, 0xf9, 0x5b, 0xb7, 0x4a, 0xf5, 0x11, 0x26, 0x5d, 0x84, 0x3d, 0xce,
-	0xce, 0x60, 0xee, 0x6a, 0x4d, 0x8f, 0x46, 0x4b, 0x4c, 0xe2, 0x34, 0xca, 0xc7, 0xbc, 0x07, 0xd7,
-	0x1f, 0xa1, 0x89, 0x0a, 0xcd, 0x9b, 0x96, 0xc8, 0x56, 0x00, 0xae, 0x55, 0x82, 0xd0, 0x43, 0x76,
-	0x5c, 0xf8, 0x8c, 0xc5, 0xa0, 0xaa, 0x25, 0x1b, 0xa2, 0x30, 0xca, 0x6c, 0xc4, 0x56, 0xb0, 0xb0,
-	0x83, 0xd2, 0x77, 0xef, 0x06, 0x73, 0x58, 0xee, 0xa3, 0x6c, 0xb4, 0x99, 0x76, 0x0b, 0x72, 0xf3,
-	0x15, 0x00, 0x00, 0xff, 0xff, 0x8c, 0x77, 0xa8, 0x71, 0x31, 0x02, 0x00, 0x00,
+	// 344 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x92, 0xc1, 0x4a, 0xeb, 0x40,
+	0x14, 0x86, 0x9b, 0xb6, 0xe9, 0x6d, 0x4f, 0xee, 0xbd, 0xd4, 0x41, 0x4a, 0x08, 0x2e, 0x42, 0x84,
+	0x12, 0x5c, 0x54, 0xac, 0x74, 0xe3, 0x4e, 0xab, 0x8b, 0x82, 0xa0, 0xa4, 0x4f, 0x30, 0x9d, 0x1c,
+	0x35, 0x94, 0xb6, 0xe9, 0xcc, 0x19, 0xa1, 0xaf, 0xe3, 0x03, 0xf8, 0x8c, 0x32, 0x33, 0xc5, 0x04,
+	0x2b, 0xee, 0xdc, 0xe5, 0xff, 0x98, 0xc9, 0xf9, 0xff, 0xff, 0x0c, 0xfc, 0x2b, 0x17, 0xe7, 0x53,
+	0x2e, 0x69, 0x54, 0xca, 0x0d, 0x6d, 0x58, 0x5b, 0x70, 0x49, 0xc9, 0x13, 0xfc, 0x35, 0x2c, 0x43,
+	0x55, 0x6e, 0xd6, 0x0a, 0xd9, 0x00, 0x3a, 0x86, 0xcf, 0xf2, 0xd0, 0x8b, 0xbd, 0xd4, 0xcf, 0xf6,
+	0xca, 0x70, 0xad, 0x50, 0xce, 0xf2, 0xb0, 0xe9, 0xb8, 0x53, 0x6c, 0x08, 0xff, 0x85, 0x44, 0x4e,
+	0x98, 0xdf, 0x72, 0xc2, 0xd9, 0xfc, 0x21, 0x6c, 0xc5, 0x5e, 0xda, 0xcb, 0xbe, 0xd0, 0xe4, 0x14,
+	0x82, 0x39, 0x71, 0xd2, 0x6a, 0xfa, 0x82, 0x62, 0xc9, 0x8e, 0xc1, 0x17, 0xe6, 0xc3, 0x4e, 0xe9,
+	0x65, 0x4e, 0x24, 0x08, 0x81, 0x33, 0xb3, 0xd5, 0xa8, 0xe8, 0xd7, 0xbc, 0xfc, 0x01, 0xff, 0x6e,
+	0x55, 0xd2, 0x2e, 0xb9, 0x82, 0xbe, 0x99, 0x77, 0x5f, 0xa8, 0xaa, 0x80, 0x21, 0xd8, 0x62, 0x42,
+	0x2f, 0x6e, 0xa5, 0xc1, 0x98, 0x8d, 0x8c, 0x18, 0xd5, 0x2b, 0xca, 0x5c, 0x71, 0x6f, 0x1e, 0xc0,
+	0x8d, 0x16, 0x4b, 0xb4, 0xd7, 0x7f, 0xf2, 0x5a, 0x10, 0xae, 0x2a, 0xaf, 0x4e, 0xb1, 0x08, 0xba,
+	0x5b, 0xcd, 0xd7, 0x54, 0xd0, 0xce, 0xba, 0xf4, 0xb3, 0x4f, 0xcd, 0xce, 0xa0, 0x6f, 0x4e, 0x5d,
+	0xe7, 0x79, 0x95, 0xa4, 0x6d, 0x93, 0x1c, 0x70, 0x76, 0x02, 0x3d, 0xbd, 0x2e, 0xe8, 0x51, 0x16,
+	0x02, 0x43, 0x3f, 0xf6, 0xd2, 0x66, 0x56, 0x81, 0xf1, 0xbb, 0xe7, 0x1a, 0x9d, 0xa3, 0x7c, 0x2d,
+	0x04, 0xb2, 0x09, 0x80, 0x2e, 0x73, 0x4e, 0x68, 0x20, 0x3b, 0xaa, 0x87, 0xb3, 0x95, 0x47, 0xdf,
+	0xe4, 0x4d, 0x1a, 0x6c, 0x02, 0x81, 0xaa, 0x2d, 0x6f, 0x7f, 0xaf, 0xb6, 0xcf, 0xe8, 0x10, 0x25,
+	0x0d, 0x76, 0x01, 0xdd, 0x67, 0x24, 0xf3, 0x2f, 0xc5, 0x02, 0x77, 0xc0, 0xf6, 0x1e, 0x0d, 0xaa,
+	0x29, 0xf5, 0xee, 0x93, 0xc6, 0xa2, 0x63, 0xdf, 0xe6, 0xe5, 0x47, 0x00, 0x00, 0x00, 0xff, 0xff,
+	0x08, 0x7d, 0x45, 0xb4, 0xac, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -289,6 +365,7 @@ const _ = grpc.SupportPackageIsVersion4
 type CartServiceClient interface {
 	UpdateCart(ctx context.Context, in *CartRequest, opts ...grpc.CallOption) (*CartResponse, error)
 	StatusCheck(ctx context.Context, in *StatusCheck, opts ...grpc.CallOption) (*StatusCheck, error)
+	GetCarts(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*CartListResponse, error)
 }
 
 type cartServiceClient struct {
@@ -317,10 +394,20 @@ func (c *cartServiceClient) StatusCheck(ctx context.Context, in *StatusCheck, op
 	return out, nil
 }
 
+func (c *cartServiceClient) GetCarts(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*CartListResponse, error) {
+	out := new(CartListResponse)
+	err := c.cc.Invoke(ctx, "/cart.CartService/getCarts", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CartServiceServer is the server API for CartService service.
 type CartServiceServer interface {
 	UpdateCart(context.Context, *CartRequest) (*CartResponse, error)
 	StatusCheck(context.Context, *StatusCheck) (*StatusCheck, error)
+	GetCarts(context.Context, *Empty) (*CartListResponse, error)
 }
 
 // UnimplementedCartServiceServer can be embedded to have forward compatible implementations.
@@ -332,6 +419,9 @@ func (*UnimplementedCartServiceServer) UpdateCart(ctx context.Context, req *Cart
 }
 func (*UnimplementedCartServiceServer) StatusCheck(ctx context.Context, req *StatusCheck) (*StatusCheck, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StatusCheck not implemented")
+}
+func (*UnimplementedCartServiceServer) GetCarts(ctx context.Context, req *Empty) (*CartListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCarts not implemented")
 }
 
 func RegisterCartServiceServer(s *grpc.Server, srv CartServiceServer) {
@@ -374,6 +464,24 @@ func _CartService_StatusCheck_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CartService_GetCarts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CartServiceServer).GetCarts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cart.CartService/GetCarts",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CartServiceServer).GetCarts(ctx, req.(*Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _CartService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "cart.CartService",
 	HandlerType: (*CartServiceServer)(nil),
@@ -385,6 +493,10 @@ var _CartService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "statusCheck",
 			Handler:    _CartService_StatusCheck_Handler,
+		},
+		{
+			MethodName: "getCarts",
+			Handler:    _CartService_GetCarts_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
